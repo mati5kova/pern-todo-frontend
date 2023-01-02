@@ -10,12 +10,9 @@ interface DeleteTodo {
 const DeleteTodo = ({ id, todos, setTodos }: DeleteTodo) => {
     const handleDelete = async (tdid: any) => {
         try {
-            const response = await fetch(
-                `${import.meta.env.VITE_SITE_URL || 'http://localhost:5000/todos'}/${tdid}` || `http://localhost:5000/todos/${tdid}`,
-                {
-                    method: 'DELETE',
-                }
-            );
+            const response = await fetch(`${import.meta.env.VITE_SITE_URL}/${tdid}` || `http://localhost:5000/todos/${tdid}`, {
+                method: 'DELETE',
+            });
             setTodos(todos.filter((todo) => todo.todo_id !== id));
         } catch (error) {
             console.error((error as Error).message);
