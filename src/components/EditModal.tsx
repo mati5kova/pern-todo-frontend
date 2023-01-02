@@ -12,7 +12,7 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
     const handleEditSubmit = async (e: any) => {
         try {
             const body = { description };
-            const newDescription = await fetch(`${import.meta.env.API_URL}/${todo.todo_id}` || `http://localhost:5000/todos/${todo.todo_id}`, {
+            const newDescription = await fetch(`${import.meta.env.VITE_SITE_URL}/${todo.todo_id}` || `http://localhost:5000/todos/${todo.todo_id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
