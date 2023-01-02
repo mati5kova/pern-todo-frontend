@@ -12,7 +12,7 @@ const TodoList = () => {
 
     const getTodos = async () => {
         try {
-            const response = await fetch(import.meta.env.VITE_SITE_URL || 'http://localhost:5000/todos');
+            const response = await fetch(import.meta.env.API_URL || 'http://localhost:5000/todos');
             const data = await response.json();
             setTodos(data);
         } catch (error) {

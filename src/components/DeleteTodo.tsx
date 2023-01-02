@@ -10,7 +10,7 @@ interface DeleteTodo {
 const DeleteTodo = ({ id, todos, setTodos }: DeleteTodo) => {
     const handleDelete = async (tdid: any) => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_SITE_URL}/${tdid}` || `http://localhost:5000/todos/${tdid}`, {
+            const response = await fetch(`${import.meta.env.API_URL}/${tdid}` || `http://localhost:5000/todos/${tdid}`, {
                 method: 'DELETE',
             });
             setTodos(todos.filter((todo) => todo.todo_id !== id));

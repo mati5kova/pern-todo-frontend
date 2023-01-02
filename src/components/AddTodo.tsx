@@ -13,7 +13,7 @@ const AddTodo = () => {
                 const x = JSON.stringify(body);
                 console.log(`type: ${typeof x}, body: ${x}`);
 
-                const response = await fetch(import.meta.env.VITE_SITE_URL || 'http://localhost:5000/todos', {
+                const response = await fetch(import.meta.env.API_URL || 'http://localhost:5000/todos', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body),
