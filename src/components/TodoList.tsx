@@ -19,7 +19,6 @@ const TodoList = () => {
             console.error(error);
         }
     };
-
     useEffect(() => {
         getTodos();
     }, []);
