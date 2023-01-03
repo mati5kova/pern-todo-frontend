@@ -4,9 +4,10 @@ import { VscChromeClose } from 'react-icons/vsc';
 interface EditModalTodo {
     setOpened: React.Dispatch<React.SetStateAction<boolean>>;
     todo: any;
+    setLastEdit: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-const EditModal = ({ setOpened, todo }: EditModalTodo) => {
+const EditModal = ({ setOpened, todo, setLastEdit }: EditModalTodo) => {
     const [description, setDescription] = useState(todo.description);
 
     const handleEditSubmit = async (e: any) => {
@@ -20,6 +21,7 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
                 body: JSON.stringify(body),
             });
             setOpened((opened) => !opened);
+            setLastEdit(body);
         } catch (error) {
             console.log((error as Error).message);
         }
