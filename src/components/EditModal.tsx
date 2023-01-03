@@ -19,6 +19,7 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
                 body: JSON.stringify(body),
             });
             setOpened((opened) => !opened);
+            window.location.href = '/';
         } catch (error) {
             console.log((error as Error).message);
         }
