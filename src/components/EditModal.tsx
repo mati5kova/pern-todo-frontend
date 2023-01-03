@@ -11,8 +11,9 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
 
     const handleEditSubmit = async (e: any) => {
         try {
+            //`http://localhost:5000/todos/${todo.todo_id}`
             const body = { description };
-            const newDescription = await fetch(`${import.meta.env.VITE_SITE_URL}/${todo.todo_id}` || `http://localhost:5000/todos/${todo.todo_id}`, {
+            const newDescription = await fetch(`https://pern-todo-backend.up.railway.app/todos/${todo.todo_id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
