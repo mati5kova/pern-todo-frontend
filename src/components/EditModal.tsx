@@ -11,7 +11,6 @@ const EditModal = ({ setOpened, todo, setLastEdit }: EditModalTodo) => {
     const [description, setDescription] = useState(todo.description);
 
     const handleEditSubmit = async (e: any) => {
-        e.preventDefault();
         try {
             //`http://localhost:5000/todos/${todo.todo_id}`
             const body = { description };
