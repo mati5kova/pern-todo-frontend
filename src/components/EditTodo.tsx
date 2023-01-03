@@ -16,6 +16,7 @@ const EditTodo = (todo: any) => {
                 <AiOutlineEdit></AiOutlineEdit>
             </button>
             {opened ? <EditModal setOpened={setOpened} todo={todo.todo} setLastEdit={setLastEdit}></EditModal> : null}
+            <div className="hidden">{JSON.stringify(lastEdit)}</div>
         </>
     );
 };
