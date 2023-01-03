@@ -3,7 +3,6 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import EditModal from './EditModal';
 
 const EditTodo = (todo: any) => {
-    const [lastEdit, setLastEdit] = useState({});
     const [opened, setOpened] = useState(false);
 
     const handleEditClick = () => {
@@ -15,8 +14,7 @@ const EditTodo = (todo: any) => {
             <button onClick={() => handleEditClick()}>
                 <AiOutlineEdit></AiOutlineEdit>
             </button>
-            {opened ? <EditModal setOpened={setOpened} todo={todo.todo} setLastEdit={setLastEdit}></EditModal> : null}
-            <div className="hidden">{JSON.stringify(lastEdit)}</div>
+            {opened ? <EditModal setOpened={setOpened} todo={todo.todo}></EditModal> : null}
         </>
     );
 };

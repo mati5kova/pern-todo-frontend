@@ -4,10 +4,9 @@ import { VscChromeClose } from 'react-icons/vsc';
 interface EditModalTodo {
     setOpened: React.Dispatch<React.SetStateAction<boolean>>;
     todo: any;
-    setLastEdit: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-const EditModal = ({ setOpened, todo, setLastEdit }: EditModalTodo) => {
+const EditModal = ({ setOpened, todo }: EditModalTodo) => {
     const [description, setDescription] = useState(todo.description);
 
     const handleEditSubmit = async (e: any) => {
@@ -20,9 +19,10 @@ const EditModal = ({ setOpened, todo, setLastEdit }: EditModalTodo) => {
                 body: JSON.stringify(body),
             });
             setOpened((opened) => !opened);
-            setLastEdit(body);
         } catch (error) {
             console.log((error as Error).message);
+        } finally {
+            window.location.reload();
         }
     };
 
@@ -63,14 +63,14 @@ const EditModal = ({ setOpened, todo, setLastEdit }: EditModalTodo) => {
                         >
                             CANCEL
                         </button>
-                        <form onSubmit={(e) => handleEditSubmit(e)}>
-                            <button
-                                type="submit"
-                                className="ml-1 inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
-                            >
-                                SAVE CHANGES
-                            </button>
-                        </form>
+
+                        <button
+                            type="button"
+                            onClick={(e) => handleEditSubmit(e)}
+                            className="ml-1 inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+                        >
+                            SAVE CHANGES
+                        </button>
                     </div>
                 </div>
             </div>
