@@ -10,6 +10,7 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
     const [description, setDescription] = useState(todo.description);
 
     const handleEditSubmit = async (e: any) => {
+        e.preventDefault();
         try {
             //`http://localhost:5000/todos/${todo.todo_id}`
             const body = { description };
@@ -19,7 +20,6 @@ const EditModal = ({ setOpened, todo }: EditModalTodo) => {
                 body: JSON.stringify(body),
             });
             setOpened((opened) => !opened);
-            window.location.href = '/';
         } catch (error) {
             console.log((error as Error).message);
         }
